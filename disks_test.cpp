@@ -20,13 +20,13 @@ int main() {
   auto sorted_one(alt_one);
   sorted_one.swap(0);
 
-  auto sorted_three(alt_three); // DL DL DL
-  sorted_three.swap(0);         // LD DL DL
-  sorted_three.swap(2);         // LD LD DL
-  sorted_three.swap(1);         // LL DD DL
-  sorted_three.swap(4);         // LL DD LD
-  sorted_three.swap(3);         // LL DL DD
-  sorted_three.swap(2);         // LL LD DD
+  auto sorted_three(alt_three); // LD LD LD
+  sorted_three.swap(0);         // DL LD LD
+  sorted_three.swap(2);         // DL DL LD
+  sorted_three.swap(1);         // DD LL LD
+  sorted_three.swap(4);         // DD LL DL
+  sorted_three.swap(3);         // DD LD LL
+  sorted_three.swap(2);         // DD DL LL
 
   rubric.criterion("disk_state still works", 1,
 		   [&]() {
@@ -36,8 +36,8 @@ int main() {
          TEST_TRUE("is_index(0) for n=1", alt_one.is_index(0));
          TEST_TRUE("is_index(1) for n=1", alt_one.is_index(1));
          TEST_FALSE("is_index(2) for n=1", alt_one.is_index(2));
-         TEST_EQUAL("get(0) for n=1", DISK_DARK, alt_one.get(0));
-         TEST_EQUAL("get(1) for n=1", DISK_LIGHT, alt_one.get(1));
+         TEST_EQUAL("get(0) for n=1", DISK_LIGHT, alt_one.get(0));
+         TEST_EQUAL("get(1) for n=1", DISK_DARK, alt_one.get(1));
 
          TEST_EQUAL("total_count() for n=3", 6, alt_three.total_count());
          TEST_EQUAL("dark_count() for n=3", 3, alt_three.dark_count());
@@ -49,22 +49,22 @@ int main() {
          TEST_TRUE("is_index(4) for n=3", alt_three.is_index(4));
          TEST_TRUE("is_index(5) for n=3", alt_three.is_index(5));
          TEST_FALSE("is_index(6) for n=3", alt_three.is_index(6));
-         TEST_EQUAL("get(0) for n=3", DISK_DARK, alt_three.get(0));
-         TEST_EQUAL("get(1) for n=3", DISK_LIGHT, alt_three.get(1));
-         TEST_EQUAL("get(2) for n=3", DISK_DARK, alt_three.get(2));
-         TEST_EQUAL("get(3) for n=3", DISK_LIGHT, alt_three.get(3));
-         TEST_EQUAL("get(4) for n=3", DISK_DARK, alt_three.get(4));
-         TEST_EQUAL("get(5) for n=3", DISK_LIGHT, alt_three.get(5));
+         TEST_EQUAL("get(0) for n=3", DISK_LIGHT, alt_three.get(0));
+         TEST_EQUAL("get(1) for n=3", DISK_DARK, alt_three.get(1));
+         TEST_EQUAL("get(2) for n=3", DISK_LIGHT, alt_three.get(2));
+         TEST_EQUAL("get(3) for n=3", DISK_DARK, alt_three.get(3));
+         TEST_EQUAL("get(4) for n=3", DISK_LIGHT, alt_three.get(4));
+         TEST_EQUAL("get(5) for n=3", DISK_DARK, alt_three.get(5));
 
-         TEST_EQUAL("get(0) after swap", DISK_LIGHT, sorted_one.get(0));
-         TEST_EQUAL("get(1) after swap", DISK_DARK, sorted_one.get(1));
+         TEST_EQUAL("get(0) after swap", DISK_DARK, sorted_one.get(0));
+         TEST_EQUAL("get(1) after swap", DISK_LIGHT, sorted_one.get(1));
 
-         TEST_EQUAL("get(0) after swaps", DISK_LIGHT, sorted_three.get(0));
-         TEST_EQUAL("get(1) after swaps", DISK_LIGHT, sorted_three.get(1));
-         TEST_EQUAL("get(2) after swaps", DISK_LIGHT, sorted_three.get(2));
-         TEST_EQUAL("get(3) after swaps", DISK_DARK, sorted_three.get(3));
-         TEST_EQUAL("get(4) after swaps", DISK_DARK, sorted_three.get(4));
-         TEST_EQUAL("get(5) after swaps", DISK_DARK, sorted_three.get(5));
+         TEST_EQUAL("get(0) after swaps", DISK_DARK, sorted_three.get(0));
+         TEST_EQUAL("get(1) after swaps", DISK_DARK, sorted_three.get(1));
+         TEST_EQUAL("get(2) after swaps", DISK_DARK, sorted_three.get(2));
+         TEST_EQUAL("get(3) after swaps", DISK_LIGHT, sorted_three.get(3));
+         TEST_EQUAL("get(4) after swaps", DISK_LIGHT, sorted_three.get(4));
+         TEST_EQUAL("get(5) after swaps", DISK_LIGHT, sorted_three.get(5));
 		   });
 
   rubric.criterion("sorted_disks still works", 1,
