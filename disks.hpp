@@ -91,8 +91,8 @@ public:
   }
 
   // Return true when this disk_state is in alternating format. That means
-  // that the first disk at index 0 is dark, the second disk at index 1
-  // is light, and so on for the entire row of disks.
+  // that the first disk at index 0 is light, the second disk at index 1
+  // is dark, and so on for the entire row of disks.
   bool is_alternating() const {
     // TODO: Write code for this function, including rewriting the return
     // statement, and then delete these comments.
@@ -100,7 +100,7 @@ public:
   }
 
   // Return true when this disk_state is fully sorted, with all light disks
-  // on the left (low indices) and all dark disks on the right (high
+  // on the right (high indices) and all dark disks on the left (low
   // indices).
   bool is_sorted() const {
     // TODO: Write code for this function, including rewriting the return
