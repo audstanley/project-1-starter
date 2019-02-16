@@ -3,6 +3,12 @@ Project 1: Implementing Algorithms
 
 Group members:
 
-Ada Lovelace adalovelace@csu.fullerton.edu
+> David Luu
+> david042691@csu.fullerton.edu
+>
+> Esteban Montelongo
+> EstebanMontelongo@csu.fullerton.edu
+>
+> Richard Stanley
+> audstanley@csu.fullerton.edu
 
-Charles Babbage charlesbab@csu.fullerton.edu
